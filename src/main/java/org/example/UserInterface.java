@@ -43,7 +43,12 @@ public class UserInterface {
             }else if(field.equals("2")){
                 System.out.println(String.format("Введите %s:", fields[Integer.parseInt(field) - 1]));
                 userValue = scan.nextLine();
-                Film.getYear(setFilms, Integer.parseInt(userValue));
+                if(CheckNumbers.isInteger(userValue)){
+                    Film.getYear(setFilms, Integer.parseInt(userValue));
+                } else{
+                    System.out.println("Вы ввели не число");
+                }
+
             }else if(field.equals("3")){
                 System.out.println(String.format("Введите %s:", fields[Integer.parseInt(field) - 1]));
                 userValue = scan.nextLine();
@@ -55,7 +60,11 @@ public class UserInterface {
             }else if(field.equals("5")){
                 System.out.println(String.format("Введите %s:", fields[Integer.parseInt(field) - 1]));
                 userValue = scan.nextLine();
-                Film.getRating(setFilms, Double.parseDouble(userValue));
+                if(CheckNumbers.isNumeric(userValue)){
+                    Film.getRating(setFilms, Double.parseDouble(userValue));
+                }else{
+                    System.out.println("Вы ввели не число");
+                }
             }else if(field.equals("6")){
                 System.out.println(String.format("Введите %s:", fields[Integer.parseInt(field) - 1]));
                 userValue = scan.nextLine();
